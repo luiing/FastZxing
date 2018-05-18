@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion compileVer
+    buildToolsVersion buildVer
+
+
+    defaultConfig {
+        //applicationId "com.bl.zxing"
+        minSdkVersion minVer
+        targetSdkVersion targetVer
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:support-v4:$supportVer"
+    compile "com.android.support:appcompat-v7:$supportVer"
+    compile 'com.google.zxing:core:3.3.0'
+}
