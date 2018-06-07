@@ -10,7 +10,7 @@
           android:layout_height="match_parent">
     </com.uis.fastzxing.ScannerView>
 
-#Support
+# Support
   support Activity screenOrientation portrait and landscape
   
   support old android device,auto preview best camera size
