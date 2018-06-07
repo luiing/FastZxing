@@ -3,6 +3,7 @@
 
 # Use
   see demo
+  
     <com.uis.fastzxing.ScannerView
           android:id="@+id/scannerview"
           android:layout_width="match_parent"
