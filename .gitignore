@@ -1,7 +1,7 @@
 # Built application files
 *.apk
 *.ap_
-
+.DS_Store
 # Files for the ART/Dalvik VM
 *.dex
 
@@ -63,3 +63,12 @@ fastlane/Preview.html
 fastlane/screenshots
 fastlane/test_output
 fastlane/readme.md
+demo/.DS_Store
+demo/libs/
+demo/src/.DS_Store
+demo/src/main/.DS_Store
+demo/src/main/java/.DS_Store
+demo/src/main/java/com/.DS_Store
+demo/src/main/java/com/myapp/.DS_Store
+demo/src/main/res/.DS_Store
+zxing/src/main/java/com/uis/.DS_Store

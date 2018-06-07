@@ -258,19 +258,23 @@ public final class CameraManager {
       if (cameraP == null || screenP == null) {
         return null;
       }
+      Log.e("camera","camera="+cameraP+",screen="+screenP);
       Rect rect = new Rect(framingRect);
       int width = rect.left + rect.right;
       int height = rect.top + rect.bottom;
       int extend = 0;
+      float ratio;
       if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
         //竖屏 cameraP=Point(1920, 1080),screenP=Point(1080, 1920)
         if(rect.left > width/12){
           extend = rect.left - width/12;
         }
+        ratio = Math.min(1.0f*cameraP.x/screenP.y,1.0f*cameraP.y/screenP.x);
       } else {//横屏 cameraP=Point(1920, 1080),screenP=Point(1920, 1080)
         if(rect.top > height/12){
           extend = rect.top - width/12;
         }
+        ratio = Math.min(1.0f*cameraP.x/screenP.x,1.0f*cameraP.y/screenP.y);
       }
       if(extend > 0){
         rect.left -= extend;
@@ -278,6 +282,10 @@ public final class CameraManager {
         rect.top -= extend;
         rect.bottom += extend;
       }
+      rect.left *= ratio;
+      rect.right *= ratio;
+      rect.top *= ratio;
+      rect.bottom *= ratio;
       framingRectPreview = rect;
     }
     return framingRectPreview;
@@ -335,8 +343,15 @@ public final class CameraManager {
     if (rect == null) {
       return null;
     }
-    return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-                                        rect.width(), rect.height(), false);
+    Log.e("camera","width="+width+",height="+height+ ",crop="+rect);
+    PlanarYUVLuminanceSource source = null;
+    try{
+      source = new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
+              rect.width(), rect.height(), false);
+    }catch (Exception ex){
+      ex.printStackTrace();
+    }
+    return source;
   }
 
   /**
