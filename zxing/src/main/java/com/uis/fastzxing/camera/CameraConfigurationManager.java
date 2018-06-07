@@ -97,8 +97,8 @@ final class CameraConfigurationManager {
     Point theScreenResolution = new Point();
     display.getSize(theScreenResolution);
     screenResolution = theScreenResolution;
-    cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
-    bestPreviewSize = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
+    bestPreviewSize = cameraResolution = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
+    //bestPreviewSize = CameraConfigurationUtils.findBestPreviewSizeValue(parameters, screenResolution);
 
     boolean isScreenPortrait = screenResolution.x < screenResolution.y;
     boolean isPreviewSizePortrait = bestPreviewSize.x < bestPreviewSize.y;

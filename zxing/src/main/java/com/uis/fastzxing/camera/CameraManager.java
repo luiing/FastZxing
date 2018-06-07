@@ -258,6 +258,7 @@ public final class CameraManager {
       if (cameraP == null || screenP == null) {
         return null;
       }
+      Log.e("camera","camera="+cameraP+",screen="+screenP);
       Rect rect = new Rect(framingRect);
       int width = rect.left + rect.right;
       int height = rect.top + rect.bottom;
@@ -342,7 +343,7 @@ public final class CameraManager {
     if (rect == null) {
       return null;
     }
-    //Log.e("camera","width="+width+",height="+height+ ",crop="+rect);
+    Log.e("camera","width="+width+",height="+height+ ",crop="+rect);
     PlanarYUVLuminanceSource source = null;
     try{
       source = new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,

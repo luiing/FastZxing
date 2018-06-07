@@ -274,7 +274,6 @@ public final class CameraConfigurationUtils {
   }
 
   public static Point findBestPreviewSizeValue(Camera.Parameters parameters, Point screenResolution) {
-
     List<Camera.Size> rawSupportedSizes = parameters.getSupportedPreviewSizes();
     if (rawSupportedSizes == null) {
       Log.w(TAG, "Device returned no supported preview sizes; using default");
@@ -302,7 +301,7 @@ public final class CameraConfigurationUtils {
       }
     });
 
-    if (Log.isLoggable(TAG, Log.INFO)) {
+    {
       StringBuilder previewSizesString = new StringBuilder();
       for (Camera.Size supportedPreviewSize : supportedPreviewSizes) {
         previewSizesString.append(supportedPreviewSize.width).append('x')
@@ -312,7 +311,7 @@ public final class CameraConfigurationUtils {
     }
 
     double screenAspectRatio = screenResolution.x / (double) screenResolution.y;
-
+    screenAspectRatio = screenAspectRatio>1.0 ? screenAspectRatio:1.0d/screenAspectRatio;
     // Remove sizes that are unsuitable
     Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
     while (it.hasNext()) {
@@ -336,7 +335,6 @@ public final class CameraConfigurationUtils {
 
       if (maybeFlippedWidth == screenResolution.x && maybeFlippedHeight == screenResolution.y) {
         Point exactPoint = new Point(realWidth, realHeight);
-        Log.i(TAG, "Found preview size exactly matching screen size: " + exactPoint);
         return exactPoint;
       }
     }
