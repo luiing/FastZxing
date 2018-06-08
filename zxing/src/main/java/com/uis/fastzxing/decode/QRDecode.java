@@ -45,7 +45,6 @@ public final class QRDecode {
      *
      * @param picturePath
      * @param listener
-     * @return
      */
     public static void decodeQR(String picturePath, OnScannerCompletionListener listener) {
         try {
@@ -60,7 +59,6 @@ public final class QRDecode {
      *
      * @param srcBitmap
      * @param listener
-     * @return
      */
     public static void decodeQR(Bitmap srcBitmap, final OnScannerCompletionListener listener) {
         Result result = null;

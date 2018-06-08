@@ -41,11 +41,6 @@ public final class QREncode {
         this.mQRCodeEncoder = codeEncoder;
     }
 
-    /**
-     * {@linkplain Builder#build()} () QREncode.Builder().build()}
-     *
-     * @return
-     */
     public Bitmap encodeAsBitmap() {
         try {
             return mQRCodeEncoder.encodeAsBitmap();
@@ -58,7 +53,7 @@ public final class QREncode {
     /**
      * @param codeEncoder {@linkplain Builder#buildDeprecated()} () QREncode.Builder()
      *                    .buildDeprecated()}
-     * @return
+     * @return bitmap or null
      */
     @Deprecated
     public static Bitmap encodeQR(QRCodeEncoder codeEncoder) {
@@ -105,7 +100,7 @@ public final class QREncode {
         /**
          * 设置二维码类型
          *
-         * @param parsedResultType {@linkplain ParsedResultType ParsedResultType}
+         * @param parsedResultType
          * @return
          */
         public Builder setParsedResultType(ParsedResultType parsedResultType) {
@@ -223,7 +218,7 @@ public final class QREncode {
         }
 
         /**
-         * 二维码中间的logo，logoSize不能 > Math.min(logoBitmap.getWidth(), logoBitmap.getHeight())
+         * 二维码中间的logo，logoSize不能大于 Math.min(logoBitmap.getWidth(), logoBitmap.getHeight())
          *
          * @param logoBitmap
          * @param logoSize

@@ -2,6 +2,8 @@
   Scan QRCode and BarCode faster with zxing
 
 # Use
+  compile 'com.uis.zxing:0.0.1'
+  
   see demo
   
     <com.uis.fastzxing.ScannerView
